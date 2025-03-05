@@ -15,7 +15,7 @@ import json
 url_begining = "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/"
 url_ending = "/JSON-stat/2.0/en"
 def get_all_as_file(dataset):
-    with open("exchequer_acc_cso.json", "wt") as fp:
+    with open("cso.json", "wt") as fp:
         print(json.dumps(get_all_data(dataset)), file=fp)
         
 def get_all_data(dataset):
