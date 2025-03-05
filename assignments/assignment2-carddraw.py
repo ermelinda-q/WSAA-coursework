@@ -2,6 +2,7 @@
 # Assignment - Deal Cards (Week 2)
 # Author: E. Qejvani
 
+######## Task ########
 # look at the the page 'Deck of Cards API'   https://deckofcardsapi.com/
 # This is an API that simulates dealing a deck of cards
 # Write a program that "deals" (prints out) 5 cards
