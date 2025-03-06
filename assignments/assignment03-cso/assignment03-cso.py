@@ -9,20 +9,27 @@
 # Upload this program to the same repository you used for the first assignment.
 # Save this assignment as "assignment03-cso.py".
 
+# Importing the modules/libraries.
 import requests
 import json
 
-url_begining = "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/"
-url_ending = "/JSON-stat/2.0/en"
+# I am dividing the url in three parts - based on topic 4 video lesson by A. Beaty.
+
+base_url = "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/"
+format_details = "/JSON-stat/2.0/en"
+dataset_id = "FIQ02"
+
+# Getting data from the API and saving it to 'cso.json'.
 def get_all_as_file(dataset):
     with open("cso.json", "wt") as fp:
         print(json.dumps(get_all_data(dataset)), file=fp)
         
+# Getting data from the API for the given dataset ID.
 def get_all_data(dataset):
-    url = url_begining + dataset + url_ending
+    url = base_url + dataset+ format_details
     response = requests.get(url)
     return response.json()
 
 if __name__ == "__main__":
-    get_all_as_file("FIQ02")
+    get_all_as_file(dataset_id)
     
