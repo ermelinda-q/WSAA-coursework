@@ -102,3 +102,7 @@ Main Execution Block
 └── if __name__ == "__main__":  
     ├── Calls get_all_as_file(dataset_id) to retrieve and save data
 ```
+
+**References**
+
+- Based on topic 4, 'Reading API's in the Wild' - WSAA lecture by A. Beatty.
