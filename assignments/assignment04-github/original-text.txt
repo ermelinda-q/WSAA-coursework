@@ -1,13 +1,14 @@
 Text to test for the assignment:
-I need to write a program that scans a text for the name 'Andrew' 
+I need to write a program that scans a text for the name 'Ermelinda' 
 and replaces it with 'Ermelinda' every time it appears. 
 List of Names:
-Andrew, 
+Ermelinda, 
 Sean,
-Andrew,
+Ermelinda,
 John,
 Paul,
 Tom,
-Andrew
+Ermelinda
 Sean,
-Andrew.
+Ermelinda.
+File has been modified.
