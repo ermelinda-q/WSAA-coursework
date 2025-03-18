@@ -14,8 +14,8 @@ from config import config as cfg
 
 # 
 apikey = cfg["githubkey"]
-REPO_NAME = "ermelinda-q/WSAA-coursework/tree/main/assignments/assignment04-github"  # repo name
-FILE_PATH = "original-text.txt"  # file to modify.
+REPO_NAME = "ermelinda-q/WSAA-coursework"  # repo name
+FILE_PATH = "assignments/assignment04-github/text_to_change.txt"  # file to modify.
 
 # Authenticate with GitHub
 g = Github(apikey)
