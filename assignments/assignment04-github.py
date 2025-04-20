@@ -9,7 +9,6 @@
 
 # Importing modules.
 from github import Github
-import os
 from config import config as cfg 
 
 # 
