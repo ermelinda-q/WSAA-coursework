@@ -151,8 +151,9 @@ _Filename:_ assignment04-github.py
 
 Write a program in python that will read a file from a GitHub repository.
 The program should:
-    - Replace all the instances of the text "Andrew" with your name.
-    - Commit those changes and push the file back to the repository.
+
+- Replace all the instances of the text "Andrew" with your name.
+- Commit those changes and push the file back to the repository.
 
 **File Structure**
 
