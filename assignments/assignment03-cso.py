@@ -21,7 +21,7 @@ dataset_id = "FIQ02"
 
 # Getting data from the API and saving it to 'cso.json'.
 def get_all_as_file(dataset):
-    with open("cso.json", "wt") as fp:
+    with open("data/cso.json", "wt") as fp:
         print(json.dumps(get_all_data(dataset)), file=fp)
         
 # Getting data from the API for the given dataset ID.
