@@ -1,0 +1,22 @@
+fluteMaker,fluteLevel,fluteModel,fluteHead,fluteBody,fluteMechanism,priceRange
+Yamaha,Beginner,YFL-212,"CY cut, nickel silver, silver-plated","Nickel silver, silver-plated","Closed keys, offset G, split E mechanism",949
+Yamaha,Intermediate,YFL-362H,"CY cut, sterling silver","Nickel silver, silver-plated","Open hole, offset G, B footjoint",1500
+Yamaha,Professional,YFL-677H,"CY cut, sterling silver",Sterling silver,"Open hole, inline G, B footjoint",4500
+Muramatsu,Beginner,EX,Solid silver,Silver-clad,"Open hole, B foot, inline or offset G",4700
+Muramatsu,Intermediate,GX,Solid silver,Solid silver,"Open hole, B foot, inline or offset G",6000
+Muramatsu,Professional,DS,Solid silver,Solid silver,"Open hole, soldered tone holes, B foot",9000
+Altus,Beginner,A907,.925 sterling silver,"Nickel silver, silver-plated","Closed hole, offset G, C foot",2000
+Altus,Intermediate,A1107,.925 sterling silver,.925 sterling silver,"Open hole, offset G, B foot",4000
+Altus,Professional,A1607,.958 Britannia silver,.958 Britannia silver,"Open hole, inline G, B foot",6500
+Azumi,Beginner,AZ-Z1RBE,Sterling silver lip plate,"Nickel silver, silver-plated","Open hole, offset G, E mechanism, B foot",1200
+Azumi,Intermediate,AZ-Z2RBE,Sterling silver headjoint,"Nickel silver, silver-plated","Open hole, offset G, E mechanism, B foot",1800
+Azumi,Professional,AZ-Z3RBE,Sterling silver headjoint,Sterling silver,"Open hole, offset G, E mechanism, B foot",2500
+Pearl,Beginner,PF-505,Silver-plated,Silver-plated,"Closed hole, offset G, C foot",800
+Pearl,Intermediate,PF-665RE,Sterling silver headjoint,Silver-plated,"Open hole, offset G, B foot, split E",1600
+Pearl,Professional,Cantabile,Solid silver headjoint and body,Solid silver,"Open hole, inline G, B foot",3000
+Trevor James,Beginner,10x,Silver-plated,Silver-plated,"Closed holes, offset G, C foot",1140
+Trevor James,Intermediate,Chanson,925 silver headjoint,Silver-plated,"Closed hole, offset G, split E, C foot",1800
+Trevor James,Professional,Virtuoso,958 silver Voce headjoint,925 silver body,"Open hole, offset G, B foot, split E",3075
+Jupiter,Beginner,JFL-700UE,"Silver-plated, .925 riser",Silver-plated nickel silver,"Closed hole, offset G, C foot",1100
+Jupiter,Intermediate,JFL-1000RBO,Solid silver headjoint,Silver-plated nickel silver,"Open hole, offset G, B foot, split E",2000
+Jupiter,Professional,JFL-1100S,Solid silver headjoint,Solid silver,"Open hole, inline G, B foot, split E",3000
