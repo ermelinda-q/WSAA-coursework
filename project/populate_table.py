@@ -15,7 +15,7 @@ mycursor = mydb.cursor()
 csv_file_path = "data/flute_data.csv"  
 df_flutes = pd.read_csv(csv_file_path)
 
-# Insert data into the 'flutes' table
+# Insert data into the 'flute' table
 for i, row in df_flutes.iterrows():
     sql = """INSERT INTO flute (fluteMaker, fluteLevel, fluteModel, fluteHead, fluteBody, fluteMechanism, priceRange)
              VALUES (%s, %s, %s, %s, %s, %s, %s)"""
