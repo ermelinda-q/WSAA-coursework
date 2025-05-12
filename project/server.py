@@ -11,29 +11,33 @@ app = Flask(__name__, static_url_path='', static_folder='static')
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
+# Mapping
 @app.route('/')
 @cross_origin()
 def index():
     return app.send_static_file('index.html')
 
 
-# curl "http://127.0.0.1:5000/flutes"
-@app.route('/flutes')
+# getAll() - curl "http://127.0.0.1:5000/flutes"
+@app.route('/flutes', methods=["GET"])
 @cross_origin()
 def getAll():
     results = fluteDAO.getAll()
     return jsonify(results)
 
 
-# curl "http://127.0.0.1:5000/flutes/1"
-@app.route('/flutes/<int:id>')
+# findById() - curl "http://127.0.0.1:5000/flutes/1"
+@app.route('/flutes/<int:id>', methods=["GET"])
 @cross_origin()
 def findById(id):
     found = fluteDAO.findByID(id)
     return jsonify(found)
 
 
-# curl -i -H "Content-Type:application/json" -X POST -d "{\"fluteMaker\":\"Yamaha\",\"fluteModel\":\"YFL-222\",\"fluteLevel\":\"Beginner\",\"fluteHead\":\"Nickel\",\"fluteBody\":\"Silver\",\"fluteMechanism\":\"Closed\",\"priceRange\":1000}" http://127.0.0.1:5000/flutes
+# create() - curl -i -H "Content-Type:application/json" -X POST 
+# -d "{\"fluteMaker\":\"Yamaha\",\"fluteModel\":\"YFL-222\",
+# \"fluteLevel\":\"Beginner\",\"fluteHead\":\"Nickel\",\"fluteBody\":\"Silver\",
+# \"fluteMechanism\":\"Closed\",\"priceRange\":1000}" http://127.0.0.1:5000/flutes
 @app.route('/flutes', methods=['POST'])
 @cross_origin()
 def create():
@@ -52,7 +56,9 @@ def create():
     return jsonify(added)
 
 
-# curl -i -H "Content-Type:application/json" -X PUT -d "{\"fluteMaker\":\"Yamaha\",\"fluteModel\":\"YFL-221\",\"fluteLevel\":\"Intermediate\",\"fluteHead\":\"Silver\",\"fluteBody\":\"Silver\",\"fluteMechanism\":\"Open\",\"priceRange\":1500}" http://127.0.0.1:5000/flutes/1
+# update() - curl -i -H "Content-Type:application/json" -X PUT -d "{\"fluteMaker\":\"Yamaha\",
+# \"fluteModel\":\"YFL-221\",\"fluteLevel\":\"Intermediate\",\"fluteHead\":\"Silver\",
+# \"fluteBody\":\"Silver\",\"fluteMechanism\":\"Open\",\"priceRange\":1500}" http://127.0.0.1:5000/flutes/1
 @app.route('/flutes/<int:id>', methods=['PUT'])
 @cross_origin()
 def update(id):
@@ -72,7 +78,7 @@ def update(id):
     return jsonify(found)
 
 
-# curl -X DELETE http://127.0.0.1:5000/flutes/1
+# delete() - curl -X DELETE http://127.0.0.1:5000/flutes/1
 @app.route('/flutes/<int:id>', methods=['DELETE'])
 @cross_origin()
 def delete(id):

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Flute Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+    background-image: url('music.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    /* Add a gradient overlay */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.5)), url('music.jpg');
+        }
+
+        .header {
+            background: linear-gradient(to right, #024704, #54dd5b); 
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+            gap: 20px;
+            justify-items: center;
+            margin: 50px 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .card a:hover {
+            background-color: #45a049;
+        }
+
+        .flute-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Welcome to My Flute Database</h1>
+    </div>
+
+    <div class="main-content">
+        <!-- Card 1: View All Flutes -->
+        <div class="card">
+            <h2>View All Flutes</h2>
+            <p>See a list of all available flutes in the database.</p>
+            <a href="view_all.html">View All Flutes</a>
+        </div>
+
+        <!-- Card 2: Find a Flute -->
+        <div class="card">
+            <h2>Find a Flute</h2>
+            <p>Search for a specific flute by ID.</p>
+            <a href="find_flute.html">Find Flute by ID</a>
+        </div>
+
+        <!-- Card 3: Create a New Flute -->
+        <div class="card">
+            <h2>Create a New Flute</h2>
+            <p>Add a new flute to my database.</p>
+            <a href="create_flute.html">Create New Flute</a>
+        </div>
+
+        <!-- Card 4: Flute Image -->
+        <div class="card">
+            <img src="flute-image.jpg" alt="Flute Image" style="width:200px;height:200px;">
+        </div>
+
+        <!-- Card 5: Update a Flute -->
+        <div class="card">
+            <h2>Update a Flute</h2>
+            <p>Update an existing flute record.</p>
+            <a href="update_flute.html">Update Flute</a>
+        </div>
+
+        <!-- Card 6: Delete a Flute -->
+        <div class="card">
+            <h2>Delete a Flute</h2>
+            <p>Remove a flute from the database by ID.</p>
+            <a href="delete_flute.html">Delete Flute</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; E. Qejvani</p>
+    </div>
+
+</body>
+</html>
