@@ -1,22 +1,56 @@
 # Flask Server file
 # Author: E. Qejvani
 # Based on lectures by A. Beatty
+# Use of render_template from: https://www.geeksforgeeks.org/flask-rendering-templates/ 
+# and
+# https://flask.palletsprojects.com/en/stable/quickstart/
 
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, render_template
 from flask_cors import CORS, cross_origin
 from fluteDAO import fluteDAO
 
-# Set static_folder to "static"
-app = Flask(__name__, static_url_path='', static_folder='static')
+# initializing Flask to default - imported render_template for easier mapping.
+app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-# Mapping
+# Mapping - I used render_template to get index.html file.
 @app.route('/')
 @cross_origin()
 def index():
-    return app.send_static_file('index.html')
+    return render_template('index.html')
 
+# Render view_all.html page to list all flutes.
+@app.route('/view_all')
+@cross_origin()
+def view_all():
+    return render_template('view_all.html')
+
+# Render find_flute.html page to search for flute by ID.
+@app.route('/find_flute')
+@cross_origin()
+def find_flute():
+    return render_template('find_flute.html')
+
+
+# Render create_flute.html page to add a new flute.
+@app.route('/create_flute')
+@cross_origin()
+def create_flute_page():
+    return render_template('create_flute.html')
+
+# Render update_flute.html page to update flute info.
+@app.route('/update_flute')
+@cross_origin()
+def update_flute_page():
+    return render_template('update_flute.html')
+
+
+# Render delete_flute.html page to delete flute by ID.
+@app.route('/delete_flute')
+@cross_origin()
+def delete_flute_page():
+    return render_template('delete_flute.html')
 
 # getAll() - curl "http://127.0.0.1:5000/flutes"
 @app.route('/flutes', methods=["GET"])
@@ -26,7 +60,7 @@ def getAll():
     return jsonify(results)
 
 
-# findById() - curl "http://127.0.0.1:5000/flutes/1"
+# findById() - curl "http://127.0.0.1:5000/flutes/id"
 @app.route('/flutes/<int:id>', methods=["GET"])
 @cross_origin()
 def findById(id):

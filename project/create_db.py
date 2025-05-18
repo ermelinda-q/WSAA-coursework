@@ -1,4 +1,7 @@
-# File to create the database.
+# WSAA - Project
+# File to create the database in python.
+# Author: E. Qejvani
+
 import mysql.connector
 
 mydb = mysql.connector.connect(

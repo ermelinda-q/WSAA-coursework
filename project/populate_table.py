@@ -1,3 +1,7 @@
+# WSAA - Project
+# Author: E.Qejvani
+# Populating the flute table from the flute_data.csv file
+
 import mysql.connector
 import pandas as pd
 

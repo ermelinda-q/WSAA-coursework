@@ -1,58 +1,57 @@
-/* CSS file for the webpages.
-    by E. Qejvani */
-
-body {
-    font-family: Arial, sans-serif;
-    background-image: url('music.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.5)), url('music.jpg');
-}
-
-.header {
-    background: linear-gradient(to right, #024704, #54dd5b);
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
+/* form-style.css */
 
 .main-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-items: center;
-    margin: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical */
+    align-items: center;     /* horizontal */
+    padding: 40px 20px;
+    min-height: 80vh;       
 }
-/* Main card container*/
-.card {
-    background-color: #ffffff;
+.form-card {
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 280px;
-    padding: 20px;
-    text-align: center;
-}
-/* Link inside the card properties */
-.card a {
-    text-decoration: none;
-    color: #fff;
-    background-color: #4CAF50;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-top: 10px;
-    display: inline-block;
-}
-/* change colour when mouse over the link */
-.card a:hover {
-    background-color: #45a049;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
 }
 
-.flute-image {
+.form-card label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.form-card input {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-card button {
     margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0d9c2f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-card button:hover {
+    background-color: #155724;
+}
+
+.confirmation {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+    display: none;
 }
