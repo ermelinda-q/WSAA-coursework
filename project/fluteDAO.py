@@ -64,7 +64,7 @@ class FluteDAO:
     def create(self, flute):
         cursor = self.getcursor()
         sql = """INSERT INTO flute (fluteMaker, fluteModel, fluteLevel, fluteHead,
-                 fluteBody, fluteMechanism, priceRange) VALUES (%s,%s,%s,%s,%s,%s,%s)"""
+                 fluteBody, fluteMechanism, flutePrice) VALUES (%s,%s,%s,%s,%s,%s,%s)"""
         values = (
             flute.get("fluteMaker"),
             flute.get("fluteModel"),
@@ -72,7 +72,7 @@ class FluteDAO:
             flute.get("fluteHead"),
             flute.get("fluteBody"),
             flute.get("fluteMechanism"),
-            flute.get("priceRange"),
+            flute.get("flutePrice"),
         )
         cursor.execute(sql, values)
         self.connection.commit()
@@ -85,7 +85,7 @@ class FluteDAO:
     def update(self, id, flute):
         cursor = self.getcursor()
         sql = """UPDATE flute SET fluteMaker=%s, fluteModel=%s, fluteLevel=%s,
-                 fluteHead=%s, fluteBody=%s, fluteMechanism=%s, priceRange=%s WHERE fluteID = %s"""
+                 fluteHead=%s, fluteBody=%s, fluteMechanism=%s, flutePrice=%s WHERE fluteID = %s"""
         values = (
             flute.get("fluteMaker"),
             flute.get("fluteModel"),
@@ -93,7 +93,7 @@ class FluteDAO:
             flute.get("fluteHead"),
             flute.get("fluteBody"),
             flute.get("fluteMechanism"),
-            flute.get("priceRange"),
+            flute.get("flutePrice"),
             id
         )
         cursor.execute(sql, values)
@@ -113,7 +113,7 @@ class FluteDAO:
     # Convert a database result tuple into a dictionary
     def convertToDictionary(self, resultLine):
         keys = ['fluteID', 'fluteMaker', 'fluteModel', 'fluteLevel',
-                'fluteHead', 'fluteBody', 'fluteMechanism', 'priceRange']
+                'fluteHead', 'fluteBody', 'fluteMechanism', 'flutePrice']
         flute = {}
         if resultLine:
             for i, value in enumerate(resultLine):

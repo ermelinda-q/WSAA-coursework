@@ -4,11 +4,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Find Flute by ID</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <!-- jQuery CDN for AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -37,7 +39,7 @@
             <p><strong>Flute Head:</strong> <span id="detailFluteHead"></span></p>
             <p><strong>Flute Body:</strong> <span id="detailFluteBody"></span></p>
             <p><strong>Flute Mechanism:</strong> <span id="detailFluteMechanism"></span></p>
-            <p><strong>Price Range:</strong> <span id="detailPriceRange"></span></p>
+            <p><strong>Flute Price:</strong> <span id="detailFlutePrice"></span></p>
         </div>
     </div>
 
@@ -46,31 +48,32 @@
     </div>
 
     <script>
-        document.getElementById('findForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const fluteID = document.getElementById('fluteID').value;
+        $(document).ready(function() {
+            $('#findForm').submit(function(event) {
+                event.preventDefault();
+                const fluteID = $('#fluteID').val();
 
-            fetch(`http://127.0.0.1:5000/flutes/${fluteID}`)
-                .then(response => {
-                    if (!response.ok) throw new Error('Not found');
-                    return response.json();
-                })
-                .then(flute => {
-                    document.getElementById('detailFluteID').innerText = flute.fluteID;
-                    document.getElementById('detailFluteMaker').innerText = flute.fluteMaker;
-                    document.getElementById('detailFluteModel').innerText = flute.fluteModel;
-                    document.getElementById('detailFluteLevel').innerText = flute.fluteLevel;
-                    document.getElementById('detailFluteHead').innerText = flute.fluteHead;
-                    document.getElementById('detailFluteBody').innerText = flute.fluteBody;
-                    document.getElementById('detailFluteMechanism').innerText = flute.fluteMechanism;
-                    document.getElementById('detailPriceRange').innerText = flute.priceRange;
-
-                    document.getElementById('fluteDetails').style.display = 'block';
-                })
-                .catch(error => {
-                    alert('Flute not found!');
-                    document.getElementById('fluteDetails').style.display = 'none';
+                $.ajax({
+                    url: `http://127.0.0.1:5000/flutes/${fluteID}`,
+                    method: 'GET',
+                    dataType: 'json',
+                    success: function(flute) {
+                        $('#detailFluteID').text(flute.fluteID);
+                        $('#detailFluteMaker').text(flute.fluteMaker);
+                        $('#detailFluteModel').text(flute.fluteModel);
+                        $('#detailFluteLevel').text(flute.fluteLevel);
+                        $('#detailFluteHead').text(flute.fluteHead);
+                        $('#detailFluteBody').text(flute.fluteBody);
+                        $('#detailFluteMechanism').text(flute.fluteMechanism);
+                        $('#detailFlutePrice').text(flute.flutePrice);
+                        $('#fluteDetails').show();
+                    },
+                    error: function() {
+                        alert('Flute not found!');
+                        $('#fluteDetails').hide();
+                    }
                 });
+            });
         });
     </script>
 

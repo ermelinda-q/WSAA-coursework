@@ -7,10 +7,10 @@ import pandas as pd
 
 # Connection to database
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="PabloTralee2003!",
-    database="myFlutesDatabase"  
+    host="ermelinda.mysql.pythonanywhere-services.com",
+    user="ermelinda",
+    password="flutes123",
+    database="ermelinda$myflutesdatabase"  
 )
 
 mycursor = mydb.cursor()
@@ -21,10 +21,10 @@ df_flutes = pd.read_csv(csv_file_path)
 
 # Insert data into the 'flute' table
 for i, row in df_flutes.iterrows():
-    sql = """INSERT INTO flute (fluteMaker, fluteLevel, fluteModel, fluteHead, fluteBody, fluteMechanism, priceRange)
+    sql = """INSERT INTO flute (fluteMaker, fluteLevel, fluteModel, fluteHead, fluteBody, fluteMechanism, flutePrice)
              VALUES (%s, %s, %s, %s, %s, %s, %s)"""
     val = (row['fluteMaker'], row['fluteLevel'], row['fluteModel'], row['fluteHead'], 
-           row['fluteBody'], row['fluteMechanism'], row['priceRange'])
+           row['fluteBody'], row['fluteMechanism'], row['flutePrice'])
     mycursor.execute(sql, val)
 
 # Commit & save

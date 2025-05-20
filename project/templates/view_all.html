@@ -9,6 +9,8 @@
     <title>View All Flutes</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <!-- jQuery CDN for AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 
@@ -18,7 +20,6 @@
     </div>
 
     <div class="view-all-content">
-        <!-- Home button using Flask's url_for located in  main.css -->
         <a href="{{ url_for('index') }}" class="home-button">Home</a>
 
         <table id="fluteTable">
@@ -31,7 +32,7 @@
                     <th>Flute Head</th>
                     <th>Flute Body</th>
                     <th>Flute Mechanism</th>
-                    <th>Price Range</th>
+                    <th>Flute Price</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,34 +46,39 @@
     </div>
 
     <script>
-        // Fetch all flutes from backend API
-        fetch('http://127.0.0.1:5000/flutes')
-            .then(response => response.json())
-            .then(data => {
-                const tableBody = document.querySelector('#fluteTable tbody');
-                data.forEach(flute => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${flute.fluteID}</td>
-                        <td>${flute.fluteMaker}</td>
-                        <td>${flute.fluteModel}</td>
-                        <td>${flute.fluteLevel}</td>
-                        <td>${flute.fluteHead}</td>
-                        <td>${flute.fluteBody}</td>
-                        <td>${flute.fluteMechanism}</td>
-                        <td>${flute.priceRange}</td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-            })
-            // catching errors.
-            .catch(err => {
-                console.error('Error loading flutes:', err);
-                const tableBody = document.querySelector('#fluteTable tbody');
-                const row = document.createElement('tr');
-                row.innerHTML = `<td colspan="8">Failed to load flutes data.</td>`;
-                tableBody.appendChild(row);
+        $(document).ready(function() {
+            $.ajax({
+                url: 'http://127.0.0.1:5000/flutes',
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    const $tableBody = $('#fluteTable tbody');
+                    if (data.length === 0) {
+                        $tableBody.append('<tr><td colspan="8">No flutes found.</td></tr>');
+                    } else {
+                        $.each(data, function(index, flute) {
+                            $tableBody.append(`
+                                <tr>
+                                    <td>${flute.fluteID}</td>
+                                    <td>${flute.fluteMaker}</td>
+                                    <td>${flute.fluteModel}</td>
+                                    <td>${flute.fluteLevel}</td>
+                                    <td>${flute.fluteHead}</td>
+                                    <td>${flute.fluteBody}</td>
+                                    <td>${flute.fluteMechanism}</td>
+                                    <td>${flute.flutePrice}</td>
+                                </tr>
+                            `);
+                        });
+                    }
+                },
+                error: function(xhr, status, error) {
+                    const $tableBody = $('#fluteTable tbody');
+                    $tableBody.append('<tr><td colspan="8">Failed to load flutes data.</td></tr>');
+                    console.error('Error loading flutes:', error);
+                }
             });
+        });
     </script>
 
 </body>

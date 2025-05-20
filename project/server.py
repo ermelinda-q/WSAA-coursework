@@ -71,7 +71,7 @@ def findById(id):
 # create() - curl -i -H "Content-Type:application/json" -X POST 
 # -d "{\"fluteMaker\":\"Yamaha\",\"fluteModel\":\"YFL-222\",
 # \"fluteLevel\":\"Beginner\",\"fluteHead\":\"Nickel\",\"fluteBody\":\"Silver\",
-# \"fluteMechanism\":\"Closed\",\"priceRange\":1000}" http://127.0.0.1:5000/flutes
+# \"fluteMechanism\":\"Closed\",\"flutePrice\":1000}" http://127.0.0.1:5000/flutes
 @app.route('/flutes', methods=['POST'])
 @cross_origin()
 def create():
@@ -84,7 +84,7 @@ def create():
         "fluteHead": request.json['fluteHead'],
         "fluteBody": request.json['fluteBody'],
         "fluteMechanism": request.json['fluteMechanism'],
-        "priceRange": request.json['priceRange'],
+        "flutePrice": request.json['flutePrice'],
     }
     added = fluteDAO.create(flute)
     return jsonify(added)
@@ -92,7 +92,7 @@ def create():
 
 # update() - curl -i -H "Content-Type:application/json" -X PUT -d "{\"fluteMaker\":\"Yamaha\",
 # \"fluteModel\":\"YFL-221\",\"fluteLevel\":\"Intermediate\",\"fluteHead\":\"Silver\",
-# \"fluteBody\":\"Silver\",\"fluteMechanism\":\"Open\",\"priceRange\":1500}" http://127.0.0.1:5000/flutes/1
+# \"fluteBody\":\"Silver\",\"fluteMechanism\":\"Open\",\"flutePrice\":1500}" http://127.0.0.1:5000/flutes/1
 @app.route('/flutes/<int:id>', methods=['PUT'])
 @cross_origin()
 def update(id):
@@ -104,7 +104,7 @@ def update(id):
         abort(400)
     reqJson = request.json
 
-    for field in ['fluteMaker', 'fluteModel', 'fluteLevel', 'fluteHead', 'fluteBody', 'fluteMechanism', 'priceRange']:
+    for field in ['fluteMaker', 'fluteModel', 'fluteLevel', 'fluteHead', 'fluteBody', 'fluteMechanism', 'flutePrice']:
         if field in reqJson:
             found[field] = reqJson[field]
 

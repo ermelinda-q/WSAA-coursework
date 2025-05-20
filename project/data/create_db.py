@@ -22,7 +22,7 @@ Q3 = '''CREATE TABLE flute(
     fluteHead VARCHAR(25),
     fluteBody VARCHAR(25),
     fluteMechanism VARCHAR(25),    
-    priceRange int UNSIGNED,
+    flutePrice int UNSIGNED,
     PRIMARY KEY (fluteID)
     )'''
 
