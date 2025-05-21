@@ -41,6 +41,10 @@
             <p><strong>Flute Mechanism:</strong> <span id="detailFluteMechanism"></span></p>
             <p><strong>Flute Price:</strong> <span id="detailFlutePrice"></span></p>
         </div>
+
+        <div class="card details-card error-message" id="errorMessage" style="display: none;">
+        <p><strong>Error: Flute ID not found.</strong></p>
+        </div>
     </div>
 
     <div class="footer">
@@ -67,10 +71,15 @@
                         $('#detailFluteMechanism').text(flute.fluteMechanism);
                         $('#detailFlutePrice').text(flute.flutePrice);
                         $('#fluteDetails').show();
+                        $('#errorMessage').hide();
                     },
-                    error: function() {
-                        alert('Flute not found!');
-                        $('#fluteDetails').hide();
+                    error: function(xhr) {
+                        if (xhr.status === 404) {
+                            $('#fluteDetails').hide();
+                            $('#errorMessage').show();
+                        } else {
+                            alert('Unexpected error: ' + xhr.statusText);
+                        }
                     }
                 });
             });

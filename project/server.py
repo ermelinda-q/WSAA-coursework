@@ -9,50 +9,44 @@ from flask import Flask, jsonify, request, abort, render_template
 from flask_cors import CORS, cross_origin
 from fluteDAO import fluteDAO
 
-# initializing Flask to default - imported render_template for easier mapping.
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-# Mapping - I used render_template to get index.html file.
 @app.route('/')
 @cross_origin()
 def index():
     return render_template('index.html')
 
-# Render view_all.html page to list all flutes.
 @app.route('/view_all')
 @cross_origin()
 def view_all():
     return render_template('view_all.html')
 
-# Render find_flute.html page to search for flute by ID.
 @app.route('/find_flute')
 @cross_origin()
 def find_flute():
     return render_template('find_flute.html')
 
-
-# Render create_flute.html page to add a new flute.
 @app.route('/create_flute')
 @cross_origin()
 def create_flute_page():
     return render_template('create_flute.html')
 
-# Render update_flute.html page to update flute info.
 @app.route('/update_flute')
 @cross_origin()
 def update_flute_page():
     return render_template('update_flute.html')
 
-
-# Render delete_flute.html page to delete flute by ID.
 @app.route('/delete_flute')
 @cross_origin()
 def delete_flute_page():
     return render_template('delete_flute.html')
 
-# getAll() - curl "http://127.0.0.1:5000/flutes"
+
+# ---------- API ROUTES ----------
+
+# Get all flutes
 @app.route('/flutes', methods=["GET"])
 @cross_origin()
 def getAll():
@@ -60,50 +54,54 @@ def getAll():
     return jsonify(results)
 
 
-# findById() - curl "http://127.0.0.1:5000/flutes/id"
+# Find flute by ID
 @app.route('/flutes/<int:id>', methods=["GET"])
 @cross_origin()
 def findById(id):
     found = fluteDAO.findByID(id)
+    if not found or found == {}:
+        return jsonify({"error": "Flute not found"}), 404
     return jsonify(found)
 
 
-# create() - curl -i -H "Content-Type:application/json" -X POST 
-# -d "{\"fluteMaker\":\"Yamaha\",\"fluteModel\":\"YFL-222\",
-# \"fluteLevel\":\"Beginner\",\"fluteHead\":\"Nickel\",\"fluteBody\":\"Silver\",
-# \"fluteMechanism\":\"Closed\",\"flutePrice\":1000}" http://127.0.0.1:5000/flutes
+# Create a new flute
 @app.route('/flutes', methods=['POST'])
 @cross_origin()
 def create():
     if not request.json:
-        abort(400)
-    flute = {
-        "fluteMaker": request.json['fluteMaker'],
-        "fluteModel": request.json['fluteModel'],
-        "fluteLevel": request.json['fluteLevel'],
-        "fluteHead": request.json['fluteHead'],
-        "fluteBody": request.json['fluteBody'],
-        "fluteMechanism": request.json['fluteMechanism'],
-        "flutePrice": request.json['flutePrice'],
-    }
+        abort(400, description="Request body must be JSON.")
+
+    try:
+        flute = {
+            "fluteMaker": request.json['fluteMaker'],
+            "fluteModel": request.json['fluteModel'],
+            "fluteLevel": request.json['fluteLevel'],
+            "fluteHead": request.json['fluteHead'],
+            "fluteBody": request.json['fluteBody'],
+            "fluteMechanism": request.json['fluteMechanism'],
+            "flutePrice": request.json['flutePrice'],
+        }
+    except KeyError as e:
+        abort(400, description=f"Missing required field: {str(e)}")
+
     added = fluteDAO.create(flute)
-    return jsonify(added)
+    return jsonify(added), 201
 
 
-# update() - curl -i -H "Content-Type:application/json" -X PUT -d "{\"fluteMaker\":\"Yamaha\",
-# \"fluteModel\":\"YFL-221\",\"fluteLevel\":\"Intermediate\",\"fluteHead\":\"Silver\",
-# \"fluteBody\":\"Silver\",\"fluteMechanism\":\"Open\",\"flutePrice\":1500}" http://127.0.0.1:5000/flutes/1
+# Update an existing flute
 @app.route('/flutes/<int:id>', methods=['PUT'])
 @cross_origin()
 def update(id):
     found = fluteDAO.findByID(id)
     if not found:
-        abort(404)
+        return jsonify({"error": "Flute not found"}), 404
 
     if not request.json:
-        abort(400)
+        abort(400, description="Request body must be JSON.")
+
     reqJson = request.json
 
+    # Update fields if they exist in request
     for field in ['fluteMaker', 'fluteModel', 'fluteLevel', 'fluteHead', 'fluteBody', 'fluteMechanism', 'flutePrice']:
         if field in reqJson:
             found[field] = reqJson[field]
@@ -112,13 +110,18 @@ def update(id):
     return jsonify(found)
 
 
-# delete() - curl -X DELETE http://127.0.0.1:5000/flutes/1
+# Delete a flute
 @app.route('/flutes/<int:id>', methods=['DELETE'])
 @cross_origin()
 def delete(id):
+    found = fluteDAO.findByID(id)
+    if not found:
+        return jsonify({"error": "Flute not found"}), 404
+
     fluteDAO.delete(id)
     return jsonify({"done": True})
 
 
+# ---------- Run the server ----------
 if __name__ == '__main__':
     app.run(debug=True)

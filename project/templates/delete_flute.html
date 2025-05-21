@@ -30,8 +30,12 @@
             </form>
         </div>
 
-        <div class="card details-card" id="deleteMessage" style="display: none;">
+        <div class="card details-card confirmation" id="deleteMessage" style="display: none;">
             <p><strong>Flute deleted successfully!</strong></p>
+        </div>
+
+        <div class="card details-card error-message" id="errorMessage" style="display: none;">
+            <p><strong>Error: Flute not found or could not be deleted.</strong></p>
         </div>
     </div>
 
@@ -50,10 +54,15 @@
                     method: 'DELETE',
                     success: function() {
                         $('#deleteMessage').show();
+                        $('#errorMessage').hide();
                     },
-                    error: function() {
-                        alert('Error deleting flute!');
-                        $('#deleteMessage').hide();
+                    error: function(xhr) {
+                        if (xhr.status === 404) {
+                            $('#errorMessage').show();
+                            $('#deleteMessage').hide();
+                        } else {
+                            alert('Unexpected error: ' + xhr.statusText);
+                        }
                     }
                 });
             });

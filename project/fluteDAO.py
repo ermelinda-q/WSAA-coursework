@@ -120,6 +120,16 @@ class FluteDAO:
                 flute[keys[i]] = value
         return flute
 
+    # Check if a flute exists by ID
+    def exists(self, id):
+        cursor = self.getcursor()
+        sql = "SELECT EXISTS(SELECT 1 FROM flute WHERE fluteID = %s)"
+        values = (id,)
+        cursor.execute(sql, values)
+        result = cursor.fetchone()
+        self.closeAll()
+        return result[0] == 1
+
 
 # Create an instance of FluteDAO to use for database operations
 fluteDAO = FluteDAO()

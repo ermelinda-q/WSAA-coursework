@@ -52,10 +52,12 @@
 
                 <button type="submit">Update Flute</button>
             </form>
-
-            <div id="updateMessage" class="confirmation" style="display:none;">
-                <p>Flute updated successfully!</p>
-            </div>
+        <div class="card details-card confirmation" id="deleteMessage" style="display: none;">
+            <p><strong>Flute deleted successfully!</strong></p>
+        </div>
+        <div class="card details-card error-message" id="errorMessage" style="display: none;">
+            <p><strong>Error: Flute ID not found.</strong></p>
+        </div>
         </div>
     </div>
 
@@ -86,10 +88,11 @@
                 dataType: 'json',
                 success: function(response) {
                     $('#updateMessage').show();
+                    $('#errorMessage').hide();
                 },
                 error: function(xhr, status, error) {
-                    alert('Error updating flute: ' + error);
                     $('#updateMessage').hide();
+                    $('#errorMessage').show();
                 }
             });
         });
