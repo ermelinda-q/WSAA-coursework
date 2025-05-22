@@ -1,25 +1,21 @@
-# README - WSAA Project
+# Concert Flute Database - WSAA Project
 
 ### Author: E.Qejvani
 
+***
 
-## Title: Concert Flute Database
+This web application is designed to manage a database of concert flutes. Developed using Flask (Python) with a frontend built in HTML, CSS, JavaScript, and AJAX, it provides a user-friendly interface to view, add, delete, and manage flute records efficiently.
 
-This is my web application for managing a database of concert flutes. Built with Flask (Python), HTML/CSS/JavaScript/AJAX, and MySQL. This app allows users to view, add, delete, and manage flute records via a web interface.
-
----
+***
 
 ## Features
 
-- Index file - main file
-- View all flutes stored in the database
-- Add new flutes with detailed information
-- Delete flutes by ID
-- Find flutes by ID
-- Update information (based on flute ID)
 - RESTful API endpoints for backend communication
+- Built with Flask (Python)
+- Uses HTML, CSS, JavaScript, and AJAX for the frontend
+- Allows users to view, add, delete, and manage concert flute records via a web interface
 
----
+***
 
 ## Technologies Used
 
@@ -27,7 +23,7 @@ This is my web application for managing a database of concert flutes. Built with
 - **Frontend:** HTML, CSS, jQuery (AJAX)
 - **Hosting:** PythonAnywhere
 
----
+***
 
 ## Project Structure
 
@@ -63,14 +59,37 @@ This is my web application for managing a database of concert flutes. Built with
 └── README.md - this file
 ```
 ***
+
 ## Set up Instructions
 
 ***
 
 ### Setting up the Database
 
-1. From data folder run
+To set up the flute database, you'll need these files: 
+- create_db.py
+- populate_table.py
+- flute_data.csv. 
 
+Step 1. Install Required Python Module
+Make sure mysql-connector-python is installed by running the command:
+
+```pip install mysql-connector-python```
+
+Step 2: Create the Database and Table
+
+Run the script to create the database and flute table:
+
+```python create_db.py```
+
+Step 3: Populate the Table with Data
+Run the script to import data from the CSV file into the database:
+
+```python populate_table.py```
+
+After these steps, your database will be populated and ready to use with your web application.
+
+***
 ### Local:
 
 1. Clone the Repository
