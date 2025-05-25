@@ -3,7 +3,7 @@
 # Based on lectures by A. Beatty
 mysql = {
     'host': "localhost",
-    'user': "root",
-    'password': "PabloTralee2003!",
+    'user': "",
+    'password': "",
     'database': "myflutesdatabase"
 }

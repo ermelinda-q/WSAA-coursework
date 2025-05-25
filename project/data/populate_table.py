@@ -7,10 +7,10 @@ import pandas as pd
 
 # Connection to database
 mydb = mysql.connector.connect(
-    host="ermelinda.mysql.pythonanywhere-services.com",
-    user="ermelinda",
-    password="flutes123",
-    database="ermelinda$myflutesdatabase"  
+    host="localhost",
+    user="",
+    password="",
+    database="myflutesdatabase"  
 )
 
 mycursor = mydb.cursor()

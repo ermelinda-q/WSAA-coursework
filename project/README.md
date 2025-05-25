@@ -5,6 +5,9 @@
 ***
 
 This web application is designed to manage a database of concert flutes. Developed using Flask (Python) with a frontend built in HTML, CSS, JavaScript, and AJAX, it provides a user-friendly interface to view, add, delete, and manage flute records efficiently.
+
+You can access the web app at https://ermelinda.pythonanywhere.com/
+
 ***
 
 ## Features
@@ -21,6 +24,7 @@ This web application is designed to manage a database of concert flutes. Develop
 - **Backend:** Flask (Python), MySQL
 - **Frontend:** HTML, CSS, jQuery (AJAX)
 - **Hosting:** PythonAnywhere
+- **Photo Editor** Microsoft Designer
 
 ***
 
@@ -71,17 +75,23 @@ To set up the flute database, you'll need these files:
 - flute_data.csv. 
 
 **Step 1. Install Required Python Module**
+
 Make sure mysql-connector-python is installed by running the command:
 
 ```pip install mysql-connector-python```
 
-**Step 2: Create the Database and Table**
+**Step 2: Make username and password changes**
+
+Type your MySQL username and password in the password section of the code in both the create_db.py and populate_table.py files.
+
+**Step 3: Create the Database and Table**
 
 Run the script to create the database and flute table:
 
 ```python create_db.py```
 
-**Step 3: Populate the Table with Data**
+**Step 4: Populate the Table with Data**
+
 Run the script to import data from the CSV file into the database:
 
 ```python populate_table.py```
@@ -95,32 +105,38 @@ After these steps, your database will be populated and ready to use with your we
 
 ```https://github.com/ermelinda-q/WSAA-coursework/tree/main/project```
 
-**Step 2. Create a Virtual Environment**
+**Step 2: Make changes to 'dbconfit.py'**
+
+Enter your MySQL username and password in the dbconfig.py file so the app can connect to the database properly.
+
+**Step 3. Create and Activate a Virtual Environment**
 
 - ```python -m venv venv```
 
 - ```venv/bin/activate ```
 
-**Step 3. Install the required packages**
+**Step 4. Install the required packages**
 
 ```pip install -r requirements.txt```
 
-**Step 4. Run the Flask App**
+**Step 5. Run the Flask App**
 
 ```python server.py```
 
-**Step 5 - Final Step**
+**Step 6 - Final Step**
 
  Navigate to http://127.0.0.1:5000/ in your browser to access the app.
+
 ***
-### Running the App on PythonAnywhere
+### Running the App on PythonAnywhere:
+
 ***
 
 **Step 1: Create a PythonAnywhere Account**
 
 - Create a free account in https://www.pythonanywhere.com 
 
-**Step 2: Clone Your GitHub Repository on PythonAnywhere**
+**Step 2: Clone Your GitHub Project Directory on PythonAnywhere**
 
 - Start a Bash console.
 - Clone your project from GitHub:
@@ -137,7 +153,7 @@ After these steps, your database will be populated and ready to use with your we
 
 - In the files directory double click 'dbconfig.py'
 - Update the file with your data
-- Save and exit (Ctrl + O, Enter, then Ctrl + X).
+- Save and exit.
 
 **Step 5: Create and Populate the MySQL Database**
 
@@ -156,20 +172,33 @@ After these steps, your database will be populated and ready to use with your we
 - Click 'Add a new web app'.
 - Set the source code path to: /home/yourusername/project folder.
 
-**Step 7: Configure the WSGI File**
+**Step 7: Other changes to not forget**
 
 - Click the WSGI file link in the Web tab.
 - Set the path to your project file.
+- Do the same for 'Source directory' section.
+- Update the jQuery AJAX section in the HTML file by removing the localhost address from the URL, changing it from url: 'http://127.0.0.1:5000/flutes' to url: '/flutes' so it correctly points to the route on PythonAnywhere.
 
 **Step 8: Reload the App**
 
 - In the Web tab, click the "Reload" button.
 - Your app is now live.
 ***
+## Notes About the Project
 
+***
+During this project, I experimented with both the Fetch API and jQuery's $.ajax to send data to the Flask backend. While both methods worked well, in the end I switched all pages to use $.ajax to meet the project requirements. To enable AJAX functionality, I included the jQuery CDN link in the <head> section of the HTML. In addition to meeting the requirement, $.ajax provides helpful utilities like built-in JSON parsing and flexible error handling. 
+
+Since my project was stored in a directory within the wsaa-coursework repository, I found it easier to use a separate repository called deploypythonanywhere to download the project files to the PythonAnywhere website.
+
+While working with files on PythonAnywhere, I found it easier to make changes directly on the website by double-clicking a file in the 'Files' tab and saving the edits afterward. This section of the site also provided a convenient way to upload individual files.
+
+***
 ## References:
 
+***
 - [HTML - Using Cards](https://www.w3schools.com/howto/howto_css_cards.asp)
 - [CSS & HTML](https://www.freecodecamp.org/news/how-to-link-css-to-html/)
 - [Flask render_template](https://www.geeksforgeeks.org/flask-rendering-templates/)
-- 
+- [Difference Between AJAX And Fetch API](https://www.geeksforgeeks.org/difference-between-ajax-and-fetch-api/)
+- [ChatGPT](https://chatgpt.com/)
