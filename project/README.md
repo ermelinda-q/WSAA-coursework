@@ -187,7 +187,7 @@ Enter your MySQL username and password in the dbconfig.py file so the app can co
 ## Notes About the Project
 
 ***
-1. During this project, I experimented with both the Fetch API and jQuery's AJAX to send data to the Flask backend. While both methods worked well, in the end I switched all pages to use $.ajax to meet the project requirements. To enable AJAX functionality, I included the jQuery CDN link in the <head> section of the HTML. In addition to meeting the requirement, $.ajax provides helpful utilities like built-in JSON parsing and flexible error handling. 
+1. Throughout this project, I explored using both the Fetch API and jQuery’s AJAX to send data to the Flask backend. Although both approaches performed effectively, I ultimately transitioned all pages to use `$.ajax` in order to satisfy the project requirements. To enable AJAX functionality, I included the jQuery CDN link within the `<head>` section of the HTML. Beyond fulfilling the requirement, `$.ajax` offers useful features such as built-in JSON parsing and versatile error handling.
 
 2. Since my project was stored in a directory within the wsaa-coursework repository, I found it easier to use a separate repository called deploypythonanywhere to download the project files to the PythonAnywhere website.
 
