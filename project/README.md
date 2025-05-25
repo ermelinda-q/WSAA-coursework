@@ -97,9 +97,9 @@ After these steps, your database will be populated and ready to use with your we
 
 **Step 2. Create a Virtual Environment**
 
-```python -m venv venv```
+- ```python -m venv venv```
 
-```venv/bin/activate ```
+- ```venv/bin/activate ```
 
 **Step 3. Install the required packages**
 
@@ -150,8 +150,8 @@ dbconfig = {
 
 - om the Bash console, run:
 
-```python data/create_db.py```
-```python populate_table.py```
+- ```python data/create_db.py```
+- ```python populate_table.py```
 
 - The above will:
     - Create the flute table in the database.
@@ -171,7 +171,8 @@ dbconfig = {
 **Step 8: Reload the App**
 
 - In the Web tab, click the "Reload" button.
-- Your app is now live at: https://yourusername.pythonanywhere.com
+- Your app is now live.
+***
 
 ## References:
 
