@@ -106,6 +106,7 @@ After these steps, your database will be populated and ready to use with your we
 ```pip install -r requirements.txt```
 
 **Step 4. Run the Flask App**
+
 ```python server.py```
 
 **Step 5 - Final Step**
@@ -124,7 +125,7 @@ After these steps, your database will be populated and ready to use with your we
 - Start a Bash console.
 - Clone your project from GitHub:
 
-```git clone 'name of your github directory```
+```git clone 'name of your github directory'```
 
 **Step 3: Set Up a MySQL Database on PythonAnywhere**
 
@@ -135,23 +136,15 @@ After these steps, your database will be populated and ready to use with your we
 **Step 4: Update dbconfig.py with PythonAnywhere Credentials**
 
 - In the files directory double click 'dbconfig.py'
-- Update the file with your data:
-
-dbconfig = {
-    "host": "yourusername.mysql.pythonanywhere-services.com",
-    "user": "yourusername",
-    "password": "yourpassword",
-    "database": "yourusername$yourdbname"
-}
-
+- Update the file with your data
 - Save and exit (Ctrl + O, Enter, then Ctrl + X).
 
 **Step 5: Create and Populate the MySQL Database**
 
-- om the Bash console, run:
+- On the Bash console, run:
 
-- ```python data/create_db.py```
-- ```python populate_table.py```
+    - ```python data/create_db.py```
+    - ```python populate_table.py```
 
 - The above will:
     - Create the flute table in the database.
