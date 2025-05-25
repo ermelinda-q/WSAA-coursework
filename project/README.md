@@ -1,6 +1,6 @@
-# Concert Flute Database - WSAA Project
+# Concert Flute Database - A WSAA Project
 
-### Author: E.Qejvani
+### Author: E. Qejvani
 
 ***
 
@@ -187,11 +187,11 @@ Enter your MySQL username and password in the dbconfig.py file so the app can co
 ## Notes About the Project
 
 ***
-During this project, I experimented with both the Fetch API and jQuery's $.ajax to send data to the Flask backend. While both methods worked well, in the end I switched all pages to use $.ajax to meet the project requirements. To enable AJAX functionality, I included the jQuery CDN link in the <head> section of the HTML. In addition to meeting the requirement, $.ajax provides helpful utilities like built-in JSON parsing and flexible error handling. 
+1. During this project, I experimented with both the Fetch API and jQuery's AJAX to send data to the Flask backend. While both methods worked well, in the end I switched all pages to use $.ajax to meet the project requirements. To enable AJAX functionality, I included the jQuery CDN link in the <head> section of the HTML. In addition to meeting the requirement, $.ajax provides helpful utilities like built-in JSON parsing and flexible error handling. 
 
-Since my project was stored in a directory within the wsaa-coursework repository, I found it easier to use a separate repository called deploypythonanywhere to download the project files to the PythonAnywhere website.
+2. Since my project was stored in a directory within the wsaa-coursework repository, I found it easier to use a separate repository called deploypythonanywhere to download the project files to the PythonAnywhere website.
 
-While working with files on PythonAnywhere, I found it easier to make changes directly on the website by double-clicking a file in the 'Files' tab and saving the edits afterward. This section of the site also provided a convenient way to upload individual files.
+3. While working with files on PythonAnywhere, I found it easier to make changes directly on the website by double-clicking a file in the 'Files' tab and saving the edits afterward. This section of the site also provided a convenient way to upload individual files.
 
 ***
 ## References:
@@ -204,4 +204,4 @@ While working with files on PythonAnywhere, I found it easier to make changes di
 - [ChatGPT](https://chatgpt.com/)
 
 ***
-### _End_
+## _End_
