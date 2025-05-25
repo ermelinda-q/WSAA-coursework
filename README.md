@@ -11,7 +11,7 @@ You can find out more about [writing in MarkDown in GitHub's documentation](http
 
 This repository holds three sub-repositories, all part of Web Services and Applications module, as part of my [Hdip in Computer Science in Data Analytics](https://www.atu.ie/courses/higher-diploma-in-science-data-analytics#:~:text=You%20are%20a%20Level%208,topics%20in%20your%20original%20degree) in [ATU](https://www.atu.ie/).
 
-For more information about these sup-repositories refer to the README files of each of them:
+For more information about these sub-repositories refer to the README files of each of them:
 
 - [Assignments' README](https://github.com/ermelinda-q/WSAA-coursework/blob/main/assignments/README.md)
 
