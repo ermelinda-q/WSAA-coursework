@@ -202,3 +202,6 @@ While working with files on PythonAnywhere, I found it easier to make changes di
 - [Flask render_template](https://www.geeksforgeeks.org/flask-rendering-templates/)
 - [Difference Between AJAX And Fetch API](https://www.geeksforgeeks.org/difference-between-ajax-and-fetch-api/)
 - [ChatGPT](https://chatgpt.com/)
+
+***
+### _End_
