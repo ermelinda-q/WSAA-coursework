@@ -3,8 +3,16 @@
 ### Author: E. Qejvani
 
 ***
+This README has been written with [GitHub's documentation on READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) in mind.
+You should refer to that documentation for more information on writing an appropriate README for visitors to your repository.
+You can find out more about [writing in MarkDown in GitHub's documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-This web application is designed to manage a database of concert flutes. Developed using Flask (Python) with a frontend built in HTML, CSS, JavaScript, and AJAX, it provides a user-friendly interface to view, add, delete, and manage flute records efficiently.
+***
+## About this Repository
+
+This git sub-repository (WSAA-coursework/project) holds all the project files of Web Services and Applications module, as part of my [Hdip in Computer Science in Data Analytics](https://www.atu.ie/courses/higher-diploma-in-science-data-analytics#:~:text=You%20are%20a%20Level%208,topics%20in%20your%20original%20degree) in [ATU](https://www.atu.ie/).
+
+In this project a web application is designed to manage a database of concert flutes. Developed using Flask (Python) with a frontend built in HTML, CSS, JavaScript, and AJAX, it provides a user-friendly interface to view, add, delete, and manage flute records efficiently.
 
 You can access the web app at https://ermelinda.pythonanywhere.com/
 
